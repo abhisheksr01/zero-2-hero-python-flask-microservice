@@ -11,6 +11,9 @@ black = "^20.8b1"
 flake8 = "^3.9.0"
 behave = "^1.2.6"
 requests = "^2.25.1"
+taskipy = "^1.6.0"
+pytest-html = "^3.1.1"
+behave-html-formatter = "^0.9.7"
 
 [tool.poetry.dev-dependencies]
 spec = "^1.4.1"
@@ -18,3 +21,10 @@ spec = "^1.4.1"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+runall = "task format && task lint && task unittest && task bddtest"
+format = "poetry run black ./"
+lint = "poetry run flake8"
+unittest = "poetry run pytest -vvv -s --html=unit-test-report.html --self-contained-html"
+bddtest = "poetry run behave -f html -o bdd-test-report.html"

@@ -1,0 +1,6 @@
+
+# Python related files used for testing Terraform
+__pycache__
+.pytest_cache
+unit-test-report.html
+bdd-test-report.html
