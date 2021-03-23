@@ -2,5 +2,6 @@
 # Python related files used for testing Terraform
 __pycache__
 .pytest_cache
+.coverage
 unit-test-report.html
 bdd-test-report.html

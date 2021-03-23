@@ -36,7 +36,7 @@ lint: FORCE ##@target Perform linting on python code.
 	poetry run flake8
 
 unit-test: FORCE ##@target Executes unit testing
-	poetry run pytest -vvv -s --html=unit-test-report.html --self-contained-html
+	poetry run pytest --cov=greetings tests/ -vvv -s --html=unit-test-report.html --self-contained-html
 
 bdd-test: FORCE ##@target Executes BDD behave tests
 	poetry run behave -f html -o bdd-test-report.html
