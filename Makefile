@@ -41,6 +41,9 @@ unit-test: FORCE ##@target Executes unit testing
 bdd-test: FORCE ##@target Executes BDD behave tests
 	poetry run behave -f html -o bdd-test-report.html
 
+start: FORCE ##starts the flask application
+	python3 run.py
+	
 run-all: FORCE ##@target Performs formatting,linting and runs Unit & BDD tests
 	poetry run task runall
 
