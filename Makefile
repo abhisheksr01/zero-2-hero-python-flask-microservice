@@ -29,17 +29,20 @@ activate: FORCE ##@target Activates the poetry environment.
 install: FORCE ##@target Installs dependency specified in pyproject.toml.
 	poetry install
 
-format: FORCE ##@target Format python code.
-	poetry run black ./
-
-lint: FORCE ##@target Perform linting on python code.
-	poetry run flake8
+format-lint: FORCE ##@target Format and lint check python code.
+	poetry run task format-lint
 
 unit-test: FORCE ##@target Executes unit testing
 	poetry run pytest --cov=greetings tests/ -vvv -s --html=unit-test-report.html --self-contained-html
 
 bdd-test: FORCE ##@target Executes BDD behave tests
 	poetry run behave -f html -o bdd-test-report.html
+
+sast: FORCE ##@target Performs SAST using bandit package
+	poetry run bandit -r ./greetings
+
+dependency-vulnerability-scan: FORCE ##@target Performs dependency vulnerability scan defined in pyproject.toml using safety package
+	poetry run safety check --full-report
 
 start: FORCE ##starts the flask application
 	python3 run.py

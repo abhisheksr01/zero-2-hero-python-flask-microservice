@@ -1,0 +1,21 @@
+---
+platform: linux
+
+inputs:
+  - name: source-repo
+
+params:
+  TARGET:
+
+run:
+  path: entrypoint.sh
+  args:
+    - bash
+    - -ceu
+    - |
+      echo "changing to source-repo"
+      cd source-repo 
+      echo "Install all dependencies"
+      poetry install
+      echo "perform following make target task : ${TARGET}"
+      make ${TARGET}
