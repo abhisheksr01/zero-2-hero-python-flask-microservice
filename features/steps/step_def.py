@@ -1,4 +1,5 @@
 import time
+import requests
 from behave import given, when, then
 
 
@@ -9,9 +10,7 @@ def step_impl(context, name):
 
 @when("the user invokes the API")
 def step_impl_when(context):
-    response = context.web_client.get(
-        f"http://localhost:5000/greetings/{context.user_name}"
-    )
+    response = requests.get(f"http://localhost:5000/greetings/{context.user_name}")
     context.response = response
 
 
@@ -35,7 +34,6 @@ def step_impl_then(
     assert (
         context.response.status_code == 200
     ), f"Expected status 200 but found {context.response.status_code}"
-    assert context.response.is_json, "Expecting output type  json"
     assert (
-        context.response.get_json()["greeting"] == expected_greeting
+        context.response.json()["greeting"] == expected_greeting
     ), f"Expected {expected_greeting} but found {context.response.get_json()['greeting']}"
