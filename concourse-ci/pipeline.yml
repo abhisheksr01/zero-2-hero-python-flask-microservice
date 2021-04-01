@@ -76,7 +76,7 @@ jobs:
         image: py-poetry
         params:
           TARGET: dependency-vulnerability-scan
-  - name: unit-testing
+  - name: unit-testing-and-code-coverage
     plan:
       - get: source-repo
         trigger: true
@@ -86,3 +86,13 @@ jobs:
         image: py-poetry
         params:
           TARGET: unit-test
+  - name: bdd-e2e-testing
+    plan:
+      - get: source-repo
+        trigger: true
+      - get: py-poetry
+      - task: check-format-lint
+        file: source-repo/concourse-ci/tasks/poetry/task.yml
+        image: py-poetry
+        params:
+          TARGET: bdd-test

@@ -27,8 +27,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
-runall = "task format && task lint && task unittest && task bddtest"
-format = "poetry run black ./"
-lint = "poetry run flake8"
-unittest = "poetry run pytest --cov=greetings tests/ -vvv -s --html=unit-test-report.html --self-contained-html"
-bddtest = "poetry run behave -f html -o bdd-test-report.html"
+runall = "task format-lint && task vulnerability-scan && task test"
+format-lint = "poetry run black ./ && poetry run flake8"
+vulnerability-scan = "poetry run bandit -r ./greetings && poetry run safety check --full-report"
+test = "poetry run pytest --cov=greetings tests/ -vvv -s --html=unit-test-report.html --self-contained-html && poetry run behave -f html -o bdd-test-report.html"
