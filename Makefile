@@ -38,6 +38,9 @@ unit-test: FORCE ##@target Executes unit testing
 bdd-test: FORCE ##@target Executes BDD behave tests
 	poetry run behave -f html -o bdd-test-report.html
 
+mutation-testing: FORCE ##@target Performs mutation testing on unit tests.
+	poetry run task mutation-test
+
 sast: FORCE ##@target Performs SAST using bandit package
 	poetry run bandit -r ./greetings
 

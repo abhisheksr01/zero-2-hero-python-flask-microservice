@@ -5,3 +5,6 @@ __pycache__
 .coverage
 unit-test-report.html
 bdd-test-report.html
+.mutmut-cache
+report.xml
+mutation-report.html

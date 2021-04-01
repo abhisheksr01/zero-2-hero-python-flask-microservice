@@ -18,6 +18,8 @@ pytest-cov = "^2.11.1"
 Flask = "^1.1.2"
 bandit = "^1.7.0"
 safety = "^1.10.3"
+mutmut = "^2.1.0"
+junit2html = "^30.0.6"
 
 [tool.poetry.dev-dependencies]
 spec = "^1.4.1"
@@ -31,3 +33,4 @@ runall = "task format-lint && task vulnerability-scan && task test"
 format-lint = "poetry run black ./ && poetry run flake8"
 vulnerability-scan = "poetry run bandit -r ./greetings && poetry run safety check --full-report"
 test = "poetry run pytest --cov=greetings tests/ -vvv -s --html=unit-test-report.html --self-contained-html && poetry run behave -f html -o bdd-test-report.html"
+mutation-test = "poetry run mutmut junitxml --suspicious-policy=ignore --untested-policy=ignore > report.xml && poetry run junit2html report.xml mutation-report.html"
