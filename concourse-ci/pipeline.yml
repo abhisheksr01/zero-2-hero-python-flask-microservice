@@ -1,8 +1,8 @@
-resource_types:
-  - name: build-metadata
-    type: docker-image
-    source:
-      repository: swce/metadata-resource
+# resource_types:
+#   - name: build-metadata
+#     type: docker-image
+#     source:
+#       repository: swce/metadata-resource
 
 resources:
   - name: source-repo
@@ -11,39 +11,39 @@ resources:
     source:
       branch: main
       uri: https://github.com/abhisheksr01/zero-2-hero-python-flask-microservice.git
-  - name: build-metadata
-    type: build-metadata
+  # - name: build-metadata
+  #   type: build-metadata
   - name: py-poetry
     type: registry-image
     source:
       repository: abhisheksr01/py-poetry
       tag: latest
-  - name: concourse-dcind-image
-    icon: docker
-    type: registry-image
-    source:
-      repository: karlkfi/concourse-dcind
-  - name: helm
-    icon: docker
-    type: registry-image
-    source:
-      repository: abhisheksr01/eks-helm
-      tag: latest
-  - name: alpine
-    type: registry-image
-    source:
-      repository: abhisheksr01/alpine
-      tag: latest
-  - name: zap
-    type: registry-image
-    source:
-      repository: owasp/zap2docker-stable
-      tag: latest
-  - name: loadimpact-k6
-    type: registry-image
-    source:
-      repository: loadimpact/k6
-      tag: latest
+  # - name: concourse-dcind-image
+  #   icon: docker
+  #   type: registry-image
+  #   source:
+  #     repository: karlkfi/concourse-dcind
+  # - name: helm
+  #   icon: docker
+  #   type: registry-image
+  #   source:
+  #     repository: abhisheksr01/eks-helm
+  #     tag: latest
+  # - name: alpine
+  #   type: registry-image
+  #   source:
+  #     repository: abhisheksr01/alpine
+  #     tag: latest
+  # - name: zap
+  #   type: registry-image
+  #   source:
+  #     repository: owasp/zap2docker-stable
+  #     tag: latest
+  # - name: loadimpact-k6
+  #   type: registry-image
+  #   source:
+  #     repository: loadimpact/k6
+  #     tag: latest
 
 jobs:
   - name: format-lint
@@ -53,7 +53,7 @@ jobs:
       - get: py-poetry
       - task: check-format-lint
         file: source-repo/concourse-ci/tasks/poetry/task.yml
-        image: gradle-jdk8-image
+        image: py-poetry
         params:
           TARGET: format-lint
   - name: static-application-security-testing
@@ -63,7 +63,7 @@ jobs:
       - get: py-poetry
       - task: check-format-lint
         file: source-repo/concourse-ci/tasks/poetry/task.yml
-        image: gradle-jdk8-image
+        image: py-poetry
         params:
           TARGET: sast
   - name: dependency-vulnerability-scan
@@ -73,7 +73,7 @@ jobs:
       - get: py-poetry
       - task: check-format-lint
         file: source-repo/concourse-ci/tasks/poetry/task.yml
-        image: gradle-jdk8-image
+        image: py-poetry
         params:
           TARGET: dependency-vulnerability-scan
   - name: unit-testing
@@ -83,6 +83,6 @@ jobs:
       - get: py-poetry
       - task: check-format-lint
         file: source-repo/concourse-ci/tasks/poetry/task.yml
-        image: gradle-jdk8-image
+        image: py-poetry
         params:
           TARGET: unit-test

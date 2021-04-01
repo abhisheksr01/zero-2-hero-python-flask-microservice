@@ -8,11 +8,11 @@ params:
   TARGET:
 
 run:
-  path: entrypoint.sh
+  path: bash
   args:
-    - bash
-    - -ceu
+    - -cu
     - |
+      set -e
       echo "changing to source-repo"
       cd source-repo 
       echo "Install all dependencies"
