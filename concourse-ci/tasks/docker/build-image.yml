@@ -19,8 +19,8 @@ run:
       docker build -t "${DOCKER_USER}/${DOCKER_IMAGE}:${TAG}" -f Dockerfile .
       docker tag "${DOCKER_USER}/${DOCKER_IMAGE}:${TAG}" "${DOCKER_USER}/${DOCKER_IMAGE}:latest"
 
-      echo "Scanning the local docker image for vulnerabilities..."
-      ./concourse-ci/tasks/docker/vulnerability-scan.sh
+      echo "Temporarily Disabled: Scanning the local docker image for vulnerabilities..."
+      # ./scripts/vulnerability-scan.sh
 
       echo "Pushing the docker images with tag ${TAG} & latest..."
       docker push "${DOCKER_USER}/${DOCKER_IMAGE}:${TAG}"
