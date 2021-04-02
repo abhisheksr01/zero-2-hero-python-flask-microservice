@@ -51,7 +51,7 @@ jobs:
       - get: source-repo
         trigger: true
       - get: py-poetry
-      - task: check-format-lint
+      - task: black-format-flake8-lint
         file: source-repo/concourse-ci/tasks/poetry/task.yml
         image: py-poetry
         params:
@@ -61,7 +61,7 @@ jobs:
       - get: source-repo
         trigger: true
       - get: py-poetry
-      - task: check-format-lint
+      - task: bandit-sast
         file: source-repo/concourse-ci/tasks/poetry/task.yml
         image: py-poetry
         params:
@@ -71,7 +71,7 @@ jobs:
       - get: source-repo
         trigger: true
       - get: py-poetry
-      - task: check-format-lint
+      - task: safety-dependency-vulnerability-scan
         file: source-repo/concourse-ci/tasks/poetry/task.yml
         image: py-poetry
         params:
@@ -80,8 +80,12 @@ jobs:
     plan:
       - get: source-repo
         trigger: true
+        passed:
+          - format-lint
+          - static-application-security-testing
+          - dependency-vulnerability-scan
       - get: py-poetry
-      - task: check-format-lint
+      - task: pytest-unit-test
         file: source-repo/concourse-ci/tasks/poetry/task.yml
         image: py-poetry
         params:
@@ -90,8 +94,12 @@ jobs:
     plan:
       - get: source-repo
         trigger: true
+        passed:
+          - format-lint
+          - static-application-security-testing
+          - dependency-vulnerability-scan
       - get: py-poetry
-      - task: check-format-lint
+      - task: behave-bdd-test
         file: source-repo/concourse-ci/tasks/poetry/task.yml
         image: py-poetry
         params:
@@ -100,8 +108,12 @@ jobs:
     plan:
       - get: source-repo
         trigger: true
+        passed:
+          - format-lint
+          - static-application-security-testing
+          - dependency-vulnerability-scan
       - get: py-poetry
-      - task: check-format-lint
+      - task: mutmut-mutation-testing
         file: source-repo/concourse-ci/tasks/poetry/task.yml
         image: py-poetry
         params:
