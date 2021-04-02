@@ -1,8 +1,8 @@
-# resource_types:
-#   - name: build-metadata
-#     type: docker-image
-#     source:
-#       repository: swce/metadata-resource
+resource_types:
+  - name: build-metadata
+    type: docker-image
+    source:
+      repository: swce/metadata-resource
 
 resources:
   - name: source-repo
