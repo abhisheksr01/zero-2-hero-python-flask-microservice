@@ -39,7 +39,9 @@ bdd-test: FORCE ##@target Executes BDD behave tests
 	poetry run behave -f html -o bdd-test-report.html
 
 mutation-testing: FORCE ##@target Performs mutation testing on unit tests.
-	poetry run task mutation-test
+	poetry run mutmut run --paths-to-mutate=./tests/ ;\
+	poetry run mutmut junitxml --suspicious-policy=ignore --untested-policy=ignore > report.xml ;\
+	poetry run junit2html report.xml mutation-report.html
 
 sast: FORCE ##@target Performs SAST using bandit package
 	poetry run bandit -r ./greetings
