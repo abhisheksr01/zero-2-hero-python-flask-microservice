@@ -11,18 +11,18 @@ resources:
     source:
       branch: main
       uri: https://github.com/abhisheksr01/zero-2-hero-python-flask-microservice.git
-  # - name: build-metadata
-  #   type: build-metadata
+  - name: build-metadata
+    type: build-metadata
   - name: py-poetry
     type: registry-image
     source:
       repository: abhisheksr01/py-poetry
       tag: latest
-  # - name: concourse-dcind-image
-  #   icon: docker
-  #   type: registry-image
-  #   source:
-  #     repository: karlkfi/concourse-dcind
+  - name: concourse-dcind-image
+    icon: docker
+    type: registry-image
+    source:
+      repository: karlkfi/concourse-dcind
   # - name: helm
   #   icon: docker
   #   type: registry-image
@@ -118,3 +118,21 @@ jobs:
         image: py-poetry
         params:
           TARGET: mutation-testing
+  - name: docker-build-scan-push
+    plan:
+    - get: source-repo
+      trigger: true
+      passed:
+        - unit-testing-and-code-coverage
+        - bdd-e2e-testing
+        - mutation-testing
+    - get: concourse-dcind-image
+    - get: build-metadata
+    - task: build-image
+      privileged: true
+      file: source-repo/concourse-ci/tasks/docker/build-image.yml
+      image: concourse-dcind-image
+      params:
+        DOCKER_USER : ((docker_user))
+        DOCKER_PASS : ((docker_pass))
+        DOCKER_IMAGE : ((docker_image))
