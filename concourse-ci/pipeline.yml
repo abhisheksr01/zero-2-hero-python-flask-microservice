@@ -197,9 +197,7 @@ jobs:
             args:
               - -c
               - |
-                cd ../../../zap/
-                echo "Running from containers home zap directory..."
-                mkdir wrk && zap-baseline.py -t "${ROOT_ENDPOINT}/health" -g gen.conf -r penetration-test-report.html || :
+                ./source-repo/scripts/pen-test.sh
   - name: load-performance-test
     plan:
       - get: source-repo
@@ -236,3 +234,4 @@ jobs:
         image: py-poetry
         params:
           TARGET: acceptance-test
+          ROOT_ENDPOINT: ((root_endpoint))
