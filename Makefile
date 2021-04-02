@@ -38,6 +38,9 @@ unit-test: FORCE ##@target Executes unit testing
 bdd-test: FORCE ##@target Executes BDD behave tests
 	poetry run behave -f html -o bdd-test-report.html
 
+acceptance-test: FORCE ##@target Executes BDD behave tests
+	TEST_TYPE=acceptance poetry run behave -f html -o bdd-test-report.html
+
 mutation-testing: FORCE ##@target Performs mutation testing on unit tests.
 	poetry run mutmut run --paths-to-mutate=./tests/ ;\
 	poetry run mutmut junitxml --suspicious-policy=ignore --untested-policy=ignore > report.xml ;\
