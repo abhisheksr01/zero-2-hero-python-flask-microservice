@@ -10,7 +10,7 @@ def step_impl(context, name):
 
 @when("the user invokes the API")
 def step_impl_when(context):
-    response = requests.get(f"http://localhost:5000/greetings/{context.user_name}")
+    response = requests.get(f"{context.root_url}/greetings/{context.user_name}")
     context.response = response
 
 

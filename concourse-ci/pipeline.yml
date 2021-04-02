@@ -165,7 +165,7 @@ jobs:
     - get: alpine
     - task: health-check
       params:
-        HEALTH_ENDPOINT: ((health_endpoint))
+        ROOT_ENDPOINT: ((root_endpoint))
       image: alpine
       config:
         platform: linux
