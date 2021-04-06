@@ -151,7 +151,6 @@ jobs:
         EKS_CLUSTER_NAME: ((eks_cluster_name))
         AWS_DEFAULT_REGION: ((aws_default_region))
         EKS_NAMESPACE: ((eks_namespace))
-        AUTH_USERNAME: ((auth_username))
         RELEASE_NAME: ((release_name))
         AWS_ACCESS_KEY_ID: ((aws_access_key_id))
         AWS_SECRET_ACCESS_KEY: ((aws_secret_access_key))
