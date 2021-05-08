@@ -60,4 +60,4 @@ def step_impl_then(
     ), f"Expected status 200 but found {context.response.status_code}"
     assert (
         context.response.json()["greeting"] == expected_greeting
-    ), f"Expected {expected_greeting} but found {context.response.get_json()['greeting']}"
+    ), f"Expected {expected_greeting} but found {context.response.json()['greeting']}"
