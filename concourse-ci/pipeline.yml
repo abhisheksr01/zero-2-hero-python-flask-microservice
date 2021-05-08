@@ -187,6 +187,8 @@ jobs:
         params:
           ROOT_ENDPOINT: ((root_endpoint))
         image: zap
+        params:
+          ROOT_ENDPOINT: ((root_endpoint))
         config:
           platform: linux
           inputs:
