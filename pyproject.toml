@@ -5,7 +5,7 @@ description = "Python Flask app to demonstrate TDD, BDD & CI/CD through Containe
 authors = ["abhisheksr01"]
 
 [tool.poetry.dependencies]
-python = "^3.9.0"
+python = "^3.9.5"
 pytest = "^6.2.2"
 black = "^20.8b1"
 flake8 = "^3.9.0"

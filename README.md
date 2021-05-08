@@ -8,7 +8,7 @@ This repository is developed with a intention to demonstrate how a typical busin
 
 ## Pre-requisite
 
-* Python 3.9.0 or higher
+* Python 3.9.5 or higher
 * Poetry
 * Docker
 * FLY CLI (For the CI/CD hands on) 
