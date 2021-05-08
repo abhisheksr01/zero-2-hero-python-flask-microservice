@@ -184,8 +184,6 @@ jobs:
           - k8s-deploy
       - get: zap
       - task: pen-test
-        params:
-          ROOT_ENDPOINT: ((root_endpoint))
         image: zap
         params:
           ROOT_ENDPOINT: ((root_endpoint))
@@ -194,11 +192,17 @@ jobs:
           inputs:
             - name: source-repo
           run:
-            path: /bin/sh
+            path: bash
             args:
               - -c
               - |
-                ./source-repo/scripts/pen-test.sh
+                cd ../../../../zap/
+                echo "Performing Penetration test on Base URL : ${ROOT_ENDPOINT}"
+                mkdir wrk && zap-baseline.py -T 5 -w report.md -a -j -t "${ROOT_ENDPOINT}" | while read -r line; do if echo "${line}" | grep -q "FAIL-NEW: [0-9]+[\t ]+FAIL-INPROG: [0-9]+[\t ]+WARN-NEW: [0-9]+[\t ]+WARN-INPROG: [0-9]+[\t ]+INFO: [0-9]+[\t ]+IGNORE: [0-9]+[\t ]+PASS: [0-9]+" ; then pidof Xvfb | xargs -r kill ; fi ; echo "${line}" ; done
+                EXIT_CODE="${?}"
+                cat /zap/wrk/report.md
+                pidof Xvfb | xargs -r kill
+                exit "${EXIT_CODE}"
   - name: load-performance-test
     plan:
       - get: source-repo
@@ -220,8 +224,9 @@ jobs:
               - -c
               - |
                 cd source-repo/performance-testing
-                echo "Starting load performance test"
-                k6 run -e ROOT_ENDPOINT=${ROOT_ENDPOINT} -u 50 -d 10s script.js
+                LOAD_TEST_URL="${ROOT_ENDPOINT}/greetings/abhishek"
+                echo "Starting load performance test on ${LOAD_TEST_URL}"
+                k6 run -e ROOT_ENDPOINT="${LOAD_TEST_URL}" -u 50 -d 10s script.js
                 echo "Completed load performance test"
   - name: acceptance-testing
     plan:
