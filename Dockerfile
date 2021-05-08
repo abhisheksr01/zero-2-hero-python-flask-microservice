@@ -1,4 +1,4 @@
-FROM python:3.9.2-buster
+FROM python:3.9.5-buster
 
 # Metadata
 LABEL org.opencontainers.image.title="abhisheksr01/zero-2-hero-python-flask-microservice" \
@@ -13,7 +13,7 @@ ENV YOUR_ENV=${YOUR_ENV} \
   PIP_NO_CACHE_DIR=off \
   PIP_DISABLE_PIP_VERSION_CHECK=on \
   PIP_DEFAULT_TIMEOUT=100 \
-  POETRY_VERSION=1.1.4
+  POETRY_VERSION=1.1.6
 
 RUN apt-get update
 
