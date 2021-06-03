@@ -22,7 +22,7 @@ resources:
     icon: docker
     type: registry-image
     source:
-      repository: karlkfi/concourse-dcind
+      repository: abhisheksr01/docker-utils-concourse
   - name: helm
     icon: docker
     type: registry-image
@@ -118,7 +118,7 @@ jobs:
         image: py-poetry
         params:
           TARGET: mutation-testing
-  - name: docker-build-scan-push
+  - name: docker-lint-build-scan-push
     plan:
     - get: source-repo
       trigger: true
@@ -141,7 +141,7 @@ jobs:
     - get: source-repo
       trigger: true
       passed:
-        - docker-build-scan-push
+        - docker-lint-build-scan-push
     - get: helm
     - task: app-helm-deploy
       privileged: true

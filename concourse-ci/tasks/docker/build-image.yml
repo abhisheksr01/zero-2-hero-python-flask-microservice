@@ -15,6 +15,11 @@ run:
       TAG="$(cat build-metadata/build-id)"
 
       cd source-repo/
+      
+      echo "Performing lint on Dockerfile..."
+      hadolint Dockerfile
+
+      echo "Building docker image : ${DOCKER_USER}/${DOCKER_IMAGE}:${TAG}"
       echo "${DOCKER_PASS}" | docker login --username "${DOCKER_USER}" --password-stdin
       docker build -t "${DOCKER_USER}/${DOCKER_IMAGE}:${TAG}" -f Dockerfile .
       docker tag "${DOCKER_USER}/${DOCKER_IMAGE}:${TAG}" "${DOCKER_USER}/${DOCKER_IMAGE}:latest"
