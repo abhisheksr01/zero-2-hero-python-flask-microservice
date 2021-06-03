@@ -1,0 +1,5 @@
+ignored:
+  - SC2046
+
+trustedRegistries:
+  - docker.io
