@@ -37,23 +37,39 @@ cd concourse-ci
 Execute the below command to spin a local concourse tool:
 ```
 make spin-concourse
+
 or 
-cd local-concourse; \docker compose up -d
+
+cd local-concourse
+
+docker compose up -d
 ```
 
 Access the local concourse using the URL http://127.0.0.1:8080/ and then download the FLY CLI utility from the concourse home page.
 
+---
+> **_For Windows:_** 
+
+- Execute the fly.exe as Administrator & then add "C:\Program Files\concourse\fly.exe" to the PATH environment variable.
+- You will have to replace the "/" with "\" appropriately and "." from the front of any path references.
+
+---
+
 Update the credentials in the [secrets/vars.yml](./concourse-ci/secrets/vars.yml)
 
-Now execute the below command to configure the pipeline job.
+From concourse-ci directory execute the below command to configure the pipeline job.
 ```
 make set-pipeline
-or 
+
+or
+
 fly -t main set-pipeline -p zero-2-hero-python-flask-microservice -c pipeline.yml -l ./secrets/vars.yml
 ```
-Authenticate the pipeline by clicking the link highlighted in CLI with USERNAME/PASSWORD as admin/admin.
+Authenticate the pipeline by clicking the link highlighted in CLI with **USERNAME/PASSWORD as admin/admin**.
 
 Then approve the pipeline configuration by typing "y" and hit enter.
+
+You might get an error related to the fly version is not sync, if so execute the command recommended in CLI to do so.
 
 By default, all the pipelines in the concourse are paused, execute the below command to unpause the same.
 
@@ -71,9 +87,19 @@ Additionally, you can perform below make commands concerning the concourse CI/CD
 Execute the below command to destroy the pipeline:
 ```
 make destroy-pipeline
+
+or 
+
+fly -t main destroy-pipeline -p zero-2-hero-python-flask-microservice
 ```
 
 Execute the below command to tear off the local concourse:
 ```
 make destroy-concourse
+
+or 
+
+cd local-concourse 
+
+docker compose down
 ```
