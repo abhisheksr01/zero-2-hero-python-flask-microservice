@@ -1,6 +1,6 @@
 Feature: Based on the current time the API will greet the invoker
 
-Scenario: When user passes his/her name to the API
+Scenario: When user passes their name to the API
     Given the user "Abhishek" wants to be greeted
     When the user invokes the API
     And Morning time is between "4" and "12"
