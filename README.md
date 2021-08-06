@@ -21,6 +21,10 @@ Scenario: When user passes their name to the API
     Then the user should be greeted with either "Hi Abhishek, Good Morning." or "Hi Abhishek, Good Afternoon." or "Hi Abhishek, Good Evening." or "Hi Abhishek, Good Night."
 ```
 
+The codebase can be better visualized as below:
+
+![Visualization of the codebase](./diagram.svg)
+
 ## Pre-requisite
 
 * Python 3.9.5 or higher
