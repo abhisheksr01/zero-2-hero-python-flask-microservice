@@ -25,6 +25,7 @@ jobs:
         python-version: "3.10"
     - name: Install dependencies
       run: |
+        pip install --user poetry
         poetry install
     - name: Run Unit Test
       run: |
