@@ -36,6 +36,7 @@ The codebase can be better visualized as below:
 
 Note: If you running behind a corporate proxy you or the pipeline may not be able to pull some of the dependencies from the internet.
 
+Github Action pipeline status for tests and dependency vulnerabilities: [![Execute unit and bdd tests](https://github.com/abhisheksr01/zero-2-hero-python-flask-microservice/actions/workflows/pipeline.yml/badge.svg)](https://github.com/abhisheksr01/zero-2-hero-python-flask-microservice/actions/workflows/pipeline.yml)
 ## Local Execution
 
 From the root of this directory execute below commands:

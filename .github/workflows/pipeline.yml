@@ -1,7 +1,7 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# This workflow will install Python dependencies using poetry, run unit , bdd tests and scan for the vulnerabilities in the dependencies
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python application
+name: unit, bdd tests & scan dependencies
 
 on:
   push:
@@ -13,10 +13,8 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  unit-bdd-tests-and-scan-dependencies:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.9
@@ -33,3 +31,6 @@ jobs:
     - name: Run BDD Test
       run: |
         make bdd-test
+    # - name: Dependency vulnerability scan
+    #   run: |
+    #     make dependency-vulnerability-scan
