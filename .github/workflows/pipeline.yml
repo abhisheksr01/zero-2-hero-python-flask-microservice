@@ -31,6 +31,6 @@ jobs:
     - name: Run BDD Test
       run: |
         make bdd-test
-    # - name: Dependency vulnerability scan
-    #   run: |
-    #     make dependency-vulnerability-scan
+    - name: Dependency vulnerability scan
+      run: |
+        make dependency-vulnerability-scan
