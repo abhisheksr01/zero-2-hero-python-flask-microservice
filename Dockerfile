@@ -1,4 +1,4 @@
-FROM python:3.9.5-buster
+FROM python:3.10-buster
 
 # Metadata
 LABEL org.opencontainers.image.title="abhisheksr01/zero-2-hero-python-flask-microservice" \
