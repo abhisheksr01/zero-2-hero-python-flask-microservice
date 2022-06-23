@@ -58,7 +58,7 @@ docs = ["sphinx (>=1.6)", "sphinx-bootstrap-theme (>=0.6)"]
 
 [[package]]
 name = "behave-html-formatter"
-version = "0.9.8"
+version = "0.9.9"
 description = "HTML formatter for Behave"
 category = "main"
 optional = false
@@ -682,7 +682,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.5"
-content-hash = "b3b385c5f362485b5701a800bdc46bc47aa73e7bd4409f02c8185a3fa6ea3b63"
+content-hash = "3ecc4a7a98a40f9d4b47d2ebeff885fd303ad1775c36bdf1be90a297369bfdd3"
 
 [metadata.files]
 atomicwrites = [
@@ -702,8 +702,8 @@ behave = [
     {file = "behave-1.2.6.tar.gz", hash = "sha256:b9662327aa53294c1351b0a9c369093ccec1d21026f050c3bd9b3e5cccf81a86"},
 ]
 behave-html-formatter = [
-    {file = "behave-html-formatter-0.9.8.tar.gz", hash = "sha256:ee0f75f3c9cb0005d29627998425223582464190b0a4e197aac227ebc2161b52"},
-    {file = "behave_html_formatter-0.9.8-py3-none-any.whl", hash = "sha256:a474af0d67612e3f3ac567f1346a37962ac081f245e8b85f5ce7c38a294b1d59"},
+    {file = "behave-html-formatter-0.9.9.tar.gz", hash = "sha256:4971527f7193ae91f737a290a8e91ae975291fab1bea49bf8231a0839c3ac018"},
+    {file = "behave_html_formatter-0.9.9-py3-none-any.whl", hash = "sha256:7fa3e1efc8448bb201c06065494bac57739ab3fc52bc0a9ea21d35311c98ceb6"},
 ]
 black = [
     {file = "black-22.3.0-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:2497f9c2386572e28921fa8bec7be3e51de6801f7459dffd6e62492531c47e09"},
