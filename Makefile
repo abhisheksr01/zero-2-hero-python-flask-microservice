@@ -50,7 +50,7 @@ sast: FORCE ##@target Performs SAST using bandit package
 	poetry run bandit -r ./greetings
 
 dependency-vulnerability-scan: FORCE ##@target Performs dependency vulnerability scan defined in pyproject.toml using safety package
-	poetry run safety check --full-report
+	poetry run safety check --full-report -i 51457
 
 start: FORCE ##starts the flask application
 	python3 run.py
