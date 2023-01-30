@@ -17,7 +17,7 @@ resources:
     type: registry-image
     source:
       repository: abhisheksr01/py-poetry
-      tag: latest
+      tag: 0.0.3
   - name: concourse-dcind-image
     icon: docker
     type: registry-image
