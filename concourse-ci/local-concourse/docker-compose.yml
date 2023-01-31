@@ -10,7 +10,7 @@ services:
       PGDATA: /database
 
   concourse:
-    image: concourse/concourse:7.7.1
+    image: rdclda/concourse:7.7.1
     command: quickstart
     privileged: true
     depends_on: [concourse-db]
