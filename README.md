@@ -104,6 +104,15 @@ Built on the simple mechanics of resources, tasks, and jobs, Concourse presents 
 
 Let us quickly spin a concourse pipeline locally and before proceeding make sure you have Docker installed.
 
+If you are using Mac M1 set the concourse image within the docker-compose.yml file to use
+```
+rdclda/concourse:7.7.1 
+```
+For none M1 macOS, set the image to:
+```
+concourse/concourse:7.7.1
+```
+
 From the root of the project change the directory:
 ```
 cd concourse-ci
@@ -139,6 +148,8 @@ or if Make is not supported
 ```
 fly -t main set-pipeline -p zero-2-hero-python-flask-microservice -c pipeline.yml -l ./secrets/vars.yml
 ```
+If you have fly installed and the make set-pipeline returns an error, make sure you "allow" it to run within Privacy and Security setting of your mac system setting.
+
 Authenticate the pipeline by clicking the link highlighted in CLI with **USERNAME/PASSWORD as admin/admin**.
 
 Then approve the pipeline configuration by typing "y" and hit enter.
