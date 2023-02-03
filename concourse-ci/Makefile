@@ -18,7 +18,8 @@ spin-concourse:
 	docker compose up -d;
 ## spin's concourse locally & is accessible at http://127.0.0.1:8080 for m1 macOS
 spin-concourse-m1:
-	./spin-concourse-m1.sh;
+	cd local-concourse; \
+	docker-compose -f docker-compose-m1.yml up -d;
 
 .PHONY: destroy-concourse
 ## destroy concourse local
