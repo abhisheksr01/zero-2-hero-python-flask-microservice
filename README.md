@@ -112,6 +112,10 @@ Execute the below command to spin a local concourse tool:
 ```
 make spin-concourse
 ```
+If you use a macOS M1 the above command will not work, use this command for m1:
+```
+make spin-concourse-m1
+```
 or if Make is not supported
 ```
 cd local-concourse
@@ -139,6 +143,8 @@ or if Make is not supported
 ```
 fly -t main set-pipeline -p zero-2-hero-python-flask-microservice -c pipeline.yml -l ./secrets/vars.yml
 ```
+If you have fly installed and the make set-pipeline returns an error, make sure you "allow" it to run within Privacy and Security setting of your mac system setting.
+
 Authenticate the pipeline by clicking the link highlighted in CLI with **USERNAME/PASSWORD as admin/admin**.
 
 Then approve the pipeline configuration by typing "y" and hit enter.
