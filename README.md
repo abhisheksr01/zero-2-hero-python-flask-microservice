@@ -104,15 +104,6 @@ Built on the simple mechanics of resources, tasks, and jobs, Concourse presents 
 
 Let us quickly spin a concourse pipeline locally and before proceeding make sure you have Docker installed.
 
-If you are using Mac M1 set the concourse image within the docker-compose.yml file to use
-```
-rdclda/concourse:7.7.1 
-```
-For none M1 macOS, set the image to:
-```
-concourse/concourse:7.7.1
-```
-
 From the root of the project change the directory:
 ```
 cd concourse-ci
@@ -120,6 +111,10 @@ cd concourse-ci
 Execute the below command to spin a local concourse tool:
 ```
 make spin-concourse
+```
+If you use a macOS M1 the above command will not work, use this command for m1:
+```
+make spin-concourse-m1
 ```
 or if Make is not supported
 ```
