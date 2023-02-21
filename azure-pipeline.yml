@@ -19,7 +19,7 @@ variables:
   pythonVersion: "3.9"
 
 stages:
-  - stage: Static Analysis And Vulnerability Scanning
+  - stage: LintAndVulnerabilityScanning
     displayName: LintAndVulnerabilityScanning
     jobs:
       - job: LintAndVulnerabilityScanning
