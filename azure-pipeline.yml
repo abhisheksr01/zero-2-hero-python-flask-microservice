@@ -51,8 +51,8 @@ stages:
               make dependency-vulnerability-scan
             workingDirectory: $(projectRoot)
             displayName: "Dependency Vulnerability Scan"
-  - stage: Test
-    displayName: Testing
+  - stage: Tests
+    displayName: Tests
     dependsOn: []
     jobs:
       - job: Testing
@@ -85,7 +85,7 @@ stages:
             displayName: "BDD Test"
   - stage: APPDeploymentToAzureVM
     displayName: "APP Deployment To Azure VM"
-    dependsOn: ["LintAndVulnerabilityScanning", "Testing"]
+    dependsOn: ["LintAndVulnerabilityScanning", "Tests"]
     jobs:
       - job: APPDeploymentToAzureVM
         displayName: "APP Deployment To Azure VM"
