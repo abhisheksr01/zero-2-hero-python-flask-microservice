@@ -21,6 +21,7 @@ variables:
 stages:
   - stage: LintAndVulnerabilityScanning
     displayName: LintAndVulnerabilityScanning
+    dependsOn: []
     jobs:
       - job: LintAndVulnerabilityScanning
         pool:
@@ -52,6 +53,7 @@ stages:
             displayName: "Dependency Vulnerability Scan"
   - stage: Test
     displayName: Testing
+    dependsOn: []
     jobs:
       - job: Testing
         pool:
