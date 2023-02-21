@@ -83,3 +83,18 @@ stages:
               make bdd-test
             workingDirectory: $(projectRoot)
             displayName: "BDD Test"
+  - stage: APPDeploymentToAzureVM
+    displayName: "APP Deployment To Azure VM"
+    dependsOn: ["LintAndVulnerabilityScanning", "Testing"]
+    jobs:
+      - job: APPDeploymentToAzureVM
+        displayName: "APP Deployment To Azure VM"
+        dependsOn: []
+        steps:
+          - script: |
+              apt update && apt install sshpass -y && mkdir ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan $PUBLIC_IP >> ~/.ssh/known_hosts
+              sshpass -p Password1234! ssh hukadmin@$PUBLIC_IP
+              pwd
+              ls
+              cd /home/hukadmin/
+            displayName: 'APPDeploymentToAzureVM'
