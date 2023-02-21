@@ -92,8 +92,8 @@ stages:
         dependsOn: []
         steps:
           - script: |
-              apt update && apt install sshpass -y && mkdir ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan $PUBLIC_IP >> ~/.ssh/known_hosts
-              sshpass -p Password1234! ssh hukadmin@$PUBLIC_IP
+              sudo apt update && sudo apt install sshpass -y && mkdir ~/.ssh/ && touch ~/.ssh/known_hosts && ssh-keyscan $PUBLIC_IP >> ~/.ssh/known_hosts
+              sudo sshpass -p Password1234! ssh hukadmin@$PUBLIC_IP
               pwd
               ls
               cd /home/hukadmin/
