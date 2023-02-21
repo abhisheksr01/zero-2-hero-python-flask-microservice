@@ -4,54 +4,80 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
 
 trigger:
-- main
+  - main
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
-  azureServiceConnectionId: '0c9df823-c46e-48c7-aead-8da6f31a0926'
+  azureServiceConnectionId: "0c9df823-c46e-48c7-aead-8da6f31a0926"
   # Agent VM image name
-  vmImageName: 'ubuntu-latest'
+  vmImageName: "ubuntu-latest"
   # Environment name
-  environmentName: 'Test'
+  environmentName: "Test"
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
   # Python version: 3.9
-  pythonVersion: '3.9'
+  pythonVersion: "3.9"
 
 stages:
-- stage: Test
-  displayName: Build stage
-  jobs:
-  - job: BuildJob
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: UsePythonVersion@0
-      inputs:
-        versionSpec: '$(pythonVersion)'
-      displayName: 'Use Python $(pythonVersion)'
-    - script: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        echo "export PATH"="/home/hukadmin/.local/bin:$PATH">>~/.bashrc
-        source ~/.bashrc
-        make activate
-        make install
-      workingDirectory: $(projectRoot)
-      displayName: "Install Poetry"
-    - script: |
-        make sast
-      workingDirectory: $(projectRoot)
-      displayName: "Install Poetry"
-
-    - task: ArchiveFiles@2
-      displayName: 'Archive files'
-      inputs:
-        rootFolderOrFile: '$(projectRoot)'
-        includeRootFolder: false
-        archiveType: zip
-        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-        replaceExistingArchive: true
-
-    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-      displayName: 'Upload package'
-      artifact: drop
+  - stage: Static Analysis And Vulnerability Scanning
+    displayName: LintAndVulnerabilityScanning
+    jobs:
+      - job: LintAndVulnerabilityScanning
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: "$(pythonVersion)"
+            displayName: "Use Python $(pythonVersion)"
+          - script: |
+              curl -sSL https://install.python-poetry.org | python3 -
+              echo "export PATH"="/home/hukadmin/.local/bin:$PATH">>~/.bashrc
+              source ~/.bashrc
+              make activate
+              make install
+            workingDirectory: $(projectRoot)
+            displayName: "Install Poetry and Dependencies"
+          - script: |
+              make format-lint
+            workingDirectory: $(projectRoot)
+            displayName: "Format Lint"
+          - script: |
+              make sast
+            workingDirectory: $(projectRoot)
+            displayName: "Static Analysis"
+          - script: |
+              make dependency-vulnerability-scan
+            workingDirectory: $(projectRoot)
+            displayName: "Dependency Vulnerability Scan"
+  - stage: Test
+    displayName: Testing
+    jobs:
+      - job: Testing
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: "$(pythonVersion)"
+            displayName: "Use Python $(pythonVersion)"
+          - script: |
+              curl -sSL https://install.python-poetry.org | python3 -
+              echo "export PATH"="/home/hukadmin/.local/bin:$PATH">>~/.bashrc
+              source ~/.bashrc
+              make activate
+              make install
+            workingDirectory: $(projectRoot)
+            displayName: "Install Poetry and Dependencies"
+          - script: |
+              make unit-test
+            workingDirectory: $(projectRoot)
+            displayName: "Unit Testing"
+          - script: |
+              make mutation-testing
+            workingDirectory: $(projectRoot)
+            displayName: "Mutation Testing"
+          - script: |
+              make bdd-test
+            workingDirectory: $(projectRoot)
+            displayName: "BDD Test"
