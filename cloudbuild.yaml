@@ -1,13 +1,10 @@
 steps:
-  - name: python
-    id: "Setup Poetry"
-    entrypoint: pip
-    args: [ "install", "poetry" ]
-  - name: python
-    id: "Install Dependencies"
-    entrypoint: poetry
-    args: [ "install" ]
-  - name: make
-    id: "black"
-    entrypoint: make
-    args: [ "format-lint" ]
+  - name: 'abhisheksr01/py-poetry'
+    id: "InstallDependencies"
+    args: [ "poetry", "install" ]
+  - name: 'abhisheksr01/py-poetry'
+    id: "FormatLint"
+    args: [ "make", "format-lint" ]
+  - name: 'abhisheksr01/py-poetry'
+    id: "StaticCodeAnalysis"
+    args: [ "make", "sast" ]
