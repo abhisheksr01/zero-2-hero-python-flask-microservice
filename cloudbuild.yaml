@@ -1,0 +1,13 @@
+steps:
+  - name: python
+    id: "Setup Poetry"
+    entrypoint: pip
+    args: [ "install", "--user poetry"]
+  - name: python
+    id: "Install Dependencies"
+    entrypoint: pip
+    args: [ "poetry", "install" ]
+  - name: python
+    id: "black"
+    entrypoint: python
+    args: ["make", "format-lint"]
