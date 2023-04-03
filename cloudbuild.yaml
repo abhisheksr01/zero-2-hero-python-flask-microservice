@@ -2,7 +2,7 @@ steps:
   - name: python
     id: "Setup Poetry"
     entrypoint: pip
-    args: [ "install", "--user poetry"]
+    args: [ "install", "poetry"]
   - name: python
     id: "Install Dependencies"
     entrypoint: pip
