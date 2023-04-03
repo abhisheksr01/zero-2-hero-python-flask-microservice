@@ -1,7 +1,7 @@
 steps:
   - name: 'abhisheksr01/py-poetry'
     id: "InstallDependencies"
-    args: [ "poetry", "install" ]
+    args: [ "ls" ]
   - name: 'abhisheksr01/py-poetry'
     id: "FormatLint"
     args: [ "make", "format-lint" ]
