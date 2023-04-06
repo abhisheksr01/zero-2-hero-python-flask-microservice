@@ -13,4 +13,5 @@ mutation-report.html
 **/.terraform.lock.hcl
 **/**/.terraform.state
 **/**/terraform.tfstate
+**/**/terraform.tfstate.backup
 **/**/.terraform.backup
