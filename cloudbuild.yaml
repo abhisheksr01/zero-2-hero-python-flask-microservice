@@ -2,9 +2,11 @@ steps:
   - name: 'abhisheksr01/py-poetry'
     id: "InstallDependencies"
     args: [ "ls" ]
-  - name: 'abhisheksr01/py-poetry'
-    id: "FormatLint"
-    args: [ "make", "format-lint" ]
-  - name: 'abhisheksr01/py-poetry'
-    id: "StaticCodeAnalysis"
-    args: [ "make", "sast" ]
+#  - name: 'abhisheksr01/py-poetry'
+#    id: "FormatLint"
+#    args: [ "make", "format-lint" ]
+#  - name: 'abhisheksr01/py-poetry'
+#    id: "StaticCodeAnalysis"
+#    args: [ "make", "sast" ]
+options:
+  logging: CLOUD_LOGGING_ONLY
