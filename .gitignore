@@ -8,3 +8,9 @@ bdd-test-report.html
 .mutmut-cache
 report.xml
 mutation-report.html
+.idea
+**/.terraform
+**/.terraform.lock.hcl
+**/**/.terraform.state
+**/**/terraform.tfstate
+**/**/.terraform.backup
