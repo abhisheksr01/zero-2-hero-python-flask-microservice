@@ -1194,13 +1194,13 @@ pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
 [[package]]
 name = "taskipy"
-version = "1.11.0"
+version = "1.12.0"
 description = "tasks runner for python projects"
 optional = false
 python-versions = ">=3.6,<4.0"
 files = [
-    {file = "taskipy-1.11.0-py3-none-any.whl", hash = "sha256:4e40cd41747a54bc8a9b3c21057c25cac645309c2d8ac897bdc1e7235e9c900e"},
-    {file = "taskipy-1.11.0.tar.gz", hash = "sha256:521e8b3b65dc1ff9bb036cae989dbe5aec1626a61cf4744e5c0d0d2450c7fcb4"},
+    {file = "taskipy-1.12.0-py3-none-any.whl", hash = "sha256:38306fbc952a7ca314b8f842a74b2fc38535cdab21031fe89e714a83e6259a84"},
+    {file = "taskipy-1.12.0.tar.gz", hash = "sha256:e3dd7c53f7c9c4fd17dc908b1037f545afc452907eb0953b84e91c0a9a9d809d"},
 ]
 
 [package.dependencies]
@@ -1293,4 +1293,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "8ea23ef4f02b696f56ab403122b6e83e12219ea4326ac8bea6e707b4e4768c1d"
+content-hash = "bd60e4d5780ac34d75df85cf9b2e7cd8ccf7e0425ebd98720f842659a8868b12"
