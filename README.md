@@ -27,7 +27,7 @@ The codebase can be better visualized as below:
 
 ## Pre-requisite
 
-* Python 3.9.5 or higher
+* Python 3.11 or higher
 * Poetry
 * Docker
 * FLY CLI (For the CI/CD hands-on)
@@ -45,7 +45,7 @@ From the root of this directory execute below commands:
 ```
 make activate
 
-or 
+or
 
 poetry shell
 ```
@@ -54,7 +54,7 @@ poetry shell
 ```
 make install
 
-or 
+or
 
 poetry install
 ```
@@ -126,7 +126,7 @@ docker compose up -d
 Access the local concourse using the URL http://127.0.0.1:8080/ and then download the FLY CLI utility from the concourse home page.
 
 ---
-> **_For Windows:_** 
+> **_For Windows:_**
 
 - Execute the fly.exe as Administrator & then add "C:\Program Files\concourse\fly.exe" to the PATH environment variable.
 - You will have to replace the "/" with "\" appropriately and "." from the front of any path references.
@@ -179,7 +179,7 @@ make destroy-concourse
 ```
 or if Make is not supported
 ```
-cd local-concourse 
+cd local-concourse
 
 docker compose down
 ```

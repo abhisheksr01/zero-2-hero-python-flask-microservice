@@ -1,4 +1,6 @@
-FROM python:3.9-buster
+FROM python:3.11-buster
+
+RUN apt-get update
 
 # Metadata
 LABEL org.opencontainers.image.title="abhisheksr01/zero-2-hero-python-flask-microservice" \
@@ -13,7 +15,7 @@ ENV YOUR_ENV=${YOUR_ENV} \
   PIP_NO_CACHE_DIR=off \
   PIP_DISABLE_PIP_VERSION_CHECK=on \
   PIP_DEFAULT_TIMEOUT=100 \
-  POETRY_VERSION=1.3
+  POETRY_VERSION=1.7.1
 
 # System deps:
 RUN pip install --no-cache-dir "poetry==$POETRY_VERSION"
