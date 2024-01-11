@@ -15,8 +15,8 @@ variables:
   environmentName: "Test"
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
-  # Python version: 3.9
-  pythonVersion: "3.9"
+  # Python version: 3.11
+  pythonVersion: "3.11"
 
 stages:
   - stage: LintAndVulnerabilityScanning
