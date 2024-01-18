@@ -1359,13 +1359,13 @@ files = [
 
 [[package]]
 name = "safety"
-version = "3.0.0a2"
+version = "3.0.0"
 description = "Checks installed dependencies for known vulnerabilities and licenses."
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 files = [
-    {file = "safety-3.0.0a2-py3-none-any.whl", hash = "sha256:6d6bcf63a3182778cf7a97a819a2eaa54465ded305304b8ae191aad1e8e28929"},
-    {file = "safety-3.0.0a2.tar.gz", hash = "sha256:3c3ad3546a5fa750a805ff18710835ca1a0a3ea5e08f2ca7a5d99b6904cecc5f"},
+    {file = "safety-3.0.0-py3-none-any.whl", hash = "sha256:b5899fa386d12834e5b1a86f041ed8d2eb5ffcc5e3792cd87d87e309fae3beeb"},
+    {file = "safety-3.0.0.tar.gz", hash = "sha256:e20eeb06add4d6d0c84c1915cd48f69174399365758de2e5c147a1ef637a1962"},
 ]
 
 [package.dependencies]
@@ -1598,4 +1598,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "336e835f39ece36be234255e17ee7ee89c7aa2347b8275bfa46c86bd052df02d"
+content-hash = "026e7837077f7929281820f54a05653ec503a977ce7db11ece163a86183ab440"
