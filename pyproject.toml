@@ -17,7 +17,7 @@ behave-html-formatter = "^0.9.10"
 pytest-cov = "^4.1.0"
 Flask = "^3.0.1"
 bandit = "^1.7.6"
-safety = "^3.0.0"
+safety = "^3.0.1"
 mutmut = "^2.4.4"
 junit2html = "^30.1.3"
 
