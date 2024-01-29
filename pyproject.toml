@@ -7,7 +7,7 @@ authors = ["abhisheksr01"]
 [tool.poetry.dependencies]
 python = "^3.8.1"
 pytest = "^7.4.4"
-black = "^23.12.1"
+black = "^24.1.1"
 flake8 = "^7.0.0"
 behave = "^1.2.6"
 requests = "^2.31.0"
