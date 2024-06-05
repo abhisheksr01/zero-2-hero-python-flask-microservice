@@ -618,12 +618,12 @@ six = "*"
 
 [[package]]
 name = "junit2html"
-version = "30.1.6"
+version = "31.0.2"
 description = "Generate HTML reports from Junit results"
 optional = false
 python-versions = "*"
 files = [
-    {file = "junit2html-30.1.6-py3-none-any.whl", hash = "sha256:9b377e3088099cfed063aaa363effb95345ecae85bf53ebd2e20a99b40855ca8"},
+    {file = "junit2html-31.0.2-py3-none-any.whl", hash = "sha256:c7fd1f253d423f0df031d0cee8ef7d4d98d9f8bf6383a2d40dca639686814866"},
 ]
 
 [package.dependencies]
@@ -1552,4 +1552,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "0812610ed9137c13533dc2e9578fc2d84c6f5c4cd4c8911a48858310c118a5b7"
+content-hash = "3685ce63ee76760fa732260ea006f2423c0fbed57ca7661f8b1205275f1682b4"
