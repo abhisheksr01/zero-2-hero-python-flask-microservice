@@ -777,12 +777,12 @@ files = [
 
 [[package]]
 name = "mutmut"
-version = "2.4.4"
+version = "2.5.0"
 description = "mutation testing for Python 3"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mutmut-2.4.4.tar.gz", hash = "sha256:babd1ac579a817f94d5b944af70f1c5fee5ed117775be0a13c99b96b96841b23"},
+    {file = "mutmut-2.5.0.tar.gz", hash = "sha256:0bb271d60047919db181bebc156b8b4a58013c39518b417cb9739ce693332981"},
 ]
 
 [package.dependencies]
@@ -1552,4 +1552,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "0812610ed9137c13533dc2e9578fc2d84c6f5c4cd4c8911a48858310c118a5b7"
+content-hash = "ce13fa6c3d6e72e5eaccd5166d4b2da1c9c8764af269ee5f1c5ed5ba0fc9e200"
