@@ -1325,13 +1325,13 @@ files = [
 
 [[package]]
 name = "safety"
-version = "3.0.1"
+version = "3.2.3"
 description = "Checks installed dependencies for known vulnerabilities and licenses."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "safety-3.0.1-py3-none-any.whl", hash = "sha256:1ed058bc4bef132b974e58d7fcad020fb897cd255328016f8a5a194b94ca91d2"},
-    {file = "safety-3.0.1.tar.gz", hash = "sha256:1f2000f03652f3a0bfc67f8fd1e98bc5723ccb76e15cb1bdd68545c3d803df01"},
+    {file = "safety-3.2.3-py3-none-any.whl", hash = "sha256:cda1e91749f610337a18b7f21f78267c127e44ebbbbcbbd419c83284279a5024"},
+    {file = "safety-3.2.3.tar.gz", hash = "sha256:414154934f1727daf8a6473493944fecb380540c3f00875dc1ae377382f7d83f"},
 ]
 
 [package.dependencies]
@@ -1341,11 +1341,11 @@ dparse = ">=0.6.4b0"
 jinja2 = ">=3.1.0"
 marshmallow = ">=3.15.0"
 packaging = ">=21.0"
-pydantic = ">=1.10.12,<2.0"
+pydantic = ">=1.10.12"
 requests = "*"
 rich = "*"
 "ruamel.yaml" = ">=0.17.21"
-safety-schemas = ">=0.0.1"
+safety-schemas = ">=0.0.2"
 setuptools = ">=65.5.1"
 typer = "*"
 typing-extensions = ">=4.7.1"
@@ -1358,21 +1358,21 @@ spdx = ["spdx-tools (>=0.8.2)"]
 
 [[package]]
 name = "safety-schemas"
-version = "0.0.1"
-description = "Schemas for Safety CLI"
+version = "0.0.2"
+description = "Schemas for Safety tools"
 optional = false
-python-versions = ">=3.7,<4.0"
+python-versions = ">=3.7"
 files = [
-    {file = "safety_schemas-0.0.1-py3-none-any.whl", hash = "sha256:33ba340a726036e1063fe075d93af88e9cddd067a1a1d294b7ebabfbe52028df"},
-    {file = "safety_schemas-0.0.1.tar.gz", hash = "sha256:de56d04a9badbbab8b360326d1a598d68b180b766eb04d3296abaee4c7ab431c"},
+    {file = "safety_schemas-0.0.2-py3-none-any.whl", hash = "sha256:277c077ce6e53221874a87c29515ffdd2f3773a6db4d035a9f67cc98db3b8c7f"},
+    {file = "safety_schemas-0.0.2.tar.gz", hash = "sha256:7d1b040ec06480f05cff6b45ea7a93e09c8942df864fb0d01ddeb67c323cfa8c"},
 ]
 
 [package.dependencies]
-dparse = ">=0.6.2"
-packaging = ">=21.0,<=23.0"
-pydantic = ">=1.10.12,<2.0.0"
+dparse = ">=0.6.4b0"
+packaging = ">=21.0"
+pydantic = "*"
 ruamel-yaml = ">=0.17.21"
-typing-extensions = ">=4.7.1,<5.0.0"
+typing-extensions = ">=4.7.1"
 
 [[package]]
 name = "setuptools"
@@ -1552,4 +1552,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "0812610ed9137c13533dc2e9578fc2d84c6f5c4cd4c8911a48858310c118a5b7"
+content-hash = "f1bb8b17a306d4173b9063cb26ebc6673b265c148f47c149be4db96d67032746"
