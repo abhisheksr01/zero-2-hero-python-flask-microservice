@@ -68,7 +68,7 @@ or
 python3 run.py
 ```
 
-Once the app has started you should be able to access the app Endpoint at http://127.0.0.1:5000/greetings/[YOUR_NAME]
+Once the app has started you should be able to access the app Endpoint at http://127.0.0.1:5001/greetings/[YOUR_NAME]
 
 ![](resources/app-start.png)
 
@@ -92,10 +92,10 @@ docker build -t greetings-app .
 
 Run docker image:
 ```
-docker run --rm -it -p 5000:5000 greetings-app
+docker run --rm -it -p 5001:5001 greetings-app
 ```
 
-Now your app should be accessible at http://127.0.0.1:5000/greetings/[YOUR_NAME]
+Now your app should be accessible at http://127.0.0.1:5001/greetings/[YOUR_NAME]
 
 ## Local Concourse Pipeline
 [Concourse](https://concourse-ci.org/) is an open-source continuous thing-doer.

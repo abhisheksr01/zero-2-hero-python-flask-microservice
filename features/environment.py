@@ -11,7 +11,7 @@ def before_scenario(context, scenario):
         proc = subprocess.Popen(["make", "start"])
         time.sleep(4)
         context.proc = proc
-        context.root_url = "http://localhost:5000"
+        context.root_url = "http://localhost:5001"
     else:
         context.root_url = os.getenv("ROOT_ENDPOINT")
 

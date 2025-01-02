@@ -33,6 +33,6 @@ spec:
         paths:
           - backend:
               serviceName: zero-2-hero-python-flask-microservice
-              servicePort: 5000
+              servicePort: 5001
     {{- end }}
   {{- end }}
