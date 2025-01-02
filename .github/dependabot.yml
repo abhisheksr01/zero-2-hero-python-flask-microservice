@@ -2,16 +2,25 @@
 # package ecosystems to update and where the package manifests are located.
 # Please see the documentation for all configuration options:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
-
 version: 2
 updates:
+  # Poetry dependencies
   - package-ecosystem: "pip"
-    directory: "/" # Location of package manifests
+    directory: "/"
     schedule:
-      interval: "daily"
-    open-pull-requests-limit: 15
+      interval: "weekly" # Options: "daily", "weekly", "monthly"
+    commit-message:
+      prefix: "build"
+      include: "scope" # Optional, includes the dependency name in commit message
     groups:
       security-update:
         applies-to: security-updates
         patterns:
           - "*"
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "ci"
