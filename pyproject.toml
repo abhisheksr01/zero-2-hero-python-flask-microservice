@@ -3,6 +3,9 @@ name = "zero-2-hero-python-flask-microservice"
 version = "0.1.0"
 description = "Python Flask app to demonstrate TDD, BDD & CI/CD through Containerization."
 authors = ["abhisheksr01"]
+packages = [
+    { include = "greetings" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.13.1"

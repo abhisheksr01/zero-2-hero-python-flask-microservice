@@ -14,3 +14,4 @@ mutation-report.html
 **/**/terraform.tfstate
 **/**/terraform.tfstate.backup
 **/**/.terraform.backup
+dist
