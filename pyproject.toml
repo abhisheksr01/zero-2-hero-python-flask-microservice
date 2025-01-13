@@ -14,7 +14,7 @@ Flask = "^3.0.3"
 
 [tool.poetry.dev-dependencies]
 spec = "^1.4.1"
-bandit = "^1.7.9"
+bandit = "^1.8.2"
 safety = "^3.2.4"
 mutmut = "^3.2.2"
 junit2html = "^31.0.2"
