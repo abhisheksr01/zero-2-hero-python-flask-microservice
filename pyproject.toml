@@ -9,8 +9,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.13.1"
-requests = "^2.32.3"
-Flask = "^3.0.3"
+requests = "^2.32.4"
+Flask = "^3.1.1"
 
 [tool.poetry.dev-dependencies]
 spec = "^1.4.1"
